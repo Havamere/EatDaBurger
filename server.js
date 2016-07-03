@@ -24,13 +24,7 @@ app.set('view engine', 'handlebars');
 //     });
 // });
 
-app.get('/', function(req,res) {
-	connection.query('SELECT * FROM burgers;', function(err, data) {
-    	if (err) throw err;
-    	res.render('index', {burgers : data});
-	});
-	//eatenBurgers(res.render('index', res.body));
-});
+app.get('/', function(req,res) {res.render('index', {})});
 
 var port = 3000;
 app.listen(port, function() {
