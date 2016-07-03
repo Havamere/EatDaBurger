@@ -6,6 +6,7 @@ var orm = {
 		connection.query(queryString, [colVal], function(err, res){
 			if (err) throw err;
 			console.log(res);
+			return res;
 		})
 	},
 	insertOne: function(table, column1, column2, column3, colOneVal){
@@ -13,6 +14,7 @@ var orm = {
 		connection.query(queryString, [colOneVal, false, now()], function(err, res) {
       		if (err) throw err;
       		console.log(res);
+      		return res;
     	});
 	},
 	updateOne: function(table, column1, column2, colTwoVal){
@@ -20,6 +22,7 @@ var orm = {
 		connection.query(queryString, [true, colTwoVal], function(err, res) {
       		if (err) throw err;
       		console.log(res);
+      		return res;
       	});
 	}
 };
