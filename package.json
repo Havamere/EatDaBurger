@@ -1,0 +1,35 @@
+{
+  "name": "eatdaburger",
+  "version": "1.0.0",
+  "description": "you make a burger then eat the burger, burgers are stored in a database",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "mysql": "^2.11.1",
+    "express-handlebars": "^3.0.0",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Havamere/EatDaBurger.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "mysql",
+    "handlebars",
+    "express"
+  ],
+  "author": "Kyle Rinehart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Havamere/EatDaBurger/issues"
+  },
+  "homepage": "https://github.com/Havamere/EatDaBurger#readme"
+}
