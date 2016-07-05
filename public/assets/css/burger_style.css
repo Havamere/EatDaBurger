@@ -1,4 +1,8 @@
 body {
-	background-color: #ffdb4d,
+	background-color: #ffdb4d;
 }
 
+img {
+	max-width: 50% !important;
+	margin-left: 15%;
+}

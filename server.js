@@ -13,20 +13,14 @@ app.use(express.static(__dirname + '/public'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('app/public'));
+app.use(express.static('public/assets'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// app.get('/', function(req,res) {
-//     connection.query('SELECT * FROM quotes;', function(err, data) {
-//       if (err) throw err;
-//       res.render('index', {quotes : data});
-//     });
-// });
-
-app.get('/', function(req,res) {res.render('index', {})});
+require('./controllers/burgers_controller.js')(app);
 
 var port = 3000;
+
 app.listen(port, function() {
     console.log("Listening on PORT " + port);
 });
