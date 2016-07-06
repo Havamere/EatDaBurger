@@ -19,6 +19,9 @@ app.set('view engine', 'handlebars');
 
 require('./controllers/burgers_controller.js')(app);
 
+//handlebars helper function
+
+
 var port = 3000;
 
 app.listen(port, function() {

@@ -15,11 +15,17 @@
 
 	<div class="row">
 		<div id="to-eat" class="col-sm-4 col-sm-offset-1">
-			createdBurgers();
 		</div>
 
 		<div id="eaten" class="col-sm-4 col-sm-offset-2">
-			eatenBurgers();
+			<ul>
+			  {{#each burgers}}
+			  	  <li>
+			  	    <p>{{#isEaten this}}</p>
+			  	  </li>
+			  	{{/isEaten}}
+			  {{/each}}
+			</ul>
 		</div>
 	</div>
 
@@ -42,6 +48,10 @@
 </div>
 
 <script type="text/javascript">
+	$(document).ready(function(){
+
+	});
+
 	$('#submit').on('click', function(){
 		createdBurgers()
 		$('#to-eat').append('<div class="row">'+
@@ -50,5 +60,4 @@
 							'</div>'+
 							'</div');
 	});
-	$()
 </script>
