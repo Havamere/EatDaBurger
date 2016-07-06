@@ -15,6 +15,11 @@
 
 	<div class="row">
 		<div id="to-eat" class="col-sm-4 col-sm-offset-1">
+			{{!-- <ul> 
+				{{#each burgers}}
+					<li>{{#notEaten this}}</li> {{/notEaten}}
+				{{/each}}
+			</ul> --}}
 		</div>
 
 		<div id="eaten" class="col-sm-4 col-sm-offset-2">
@@ -23,16 +28,16 @@
 			  	  <li>
 			  	    <p>{{#isEaten this}}</p>
 			  	  </li>
-			  	{{/isEaten}}
+			  	  {{/isEaten}}
 			  {{/each}}
 			</ul>
 		</div>
 	</div>
 
+	{{!-- Form should send a post command to the server --}}
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4"><h3>Create A Burger</h3></div>
 	</div>
-	{{!-- Form should send a post command to the server --}}
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4"><h5>Burger Name</h5></div>
 	</div>
@@ -41,14 +46,26 @@
 			<form class="create-form" method="POST" action="/create">
 	 		<div class="form-group">
 	    	<textarea type="text" id="name" name="burger" rows="3" cols="30"></textarea>
-			</form>
+			</form></br>
 	  	<button type="submit" id="submit">Create your burger!</button>
 	  	</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-	//$('#submit').on('click', function(){
-		//console.log($('#name').val());
-	//});
+	$('#submit').on('click', function(){
+		$.get('/newBurger', function(data){
+			for (var i=0; i<data.length; i++){
+				if (data[i].devoured == 0){
+					$('#to-eat').append( "<li>"+
+							    		"<p>"+data[i].id+". "+data[i].burger_name+"</p>"+
+							    		"<form action='/update?_method=PUT' method='POST class='button-size'>"+
+							    		"<input type='text' name='"+data[i].burger_name+"' id='"+data[i].id+"'>"+
+							    		"<button type='submit'>Devour It!</button>"+
+							    		"</form>"+
+							    		"</li>");
+				}
+			}
+		})
+	});
 </script>
