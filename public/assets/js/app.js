@@ -10,6 +10,6 @@ $(document).on('ready'){
 	});
 
 	function eatME(val){
-		
+		$.post('/')
 	};
 }

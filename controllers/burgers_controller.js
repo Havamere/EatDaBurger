@@ -27,16 +27,18 @@ module.exports = function(app) {
 	});
 
 	app.post('/create', function(req, res) {
-		console.log(req.body.burger);
-    	// orm.insertOne('burgers', 'burger_name', 'devoured', 'date', req.body.burger).then(function(data){
-    	orm.insertOne('burgers', {burger_name: req.body.burger, devoured: false}).then(function(data){
-    	});
+		//console.log(req.body.burger);
+    	orm.insertOne('burgers', {burger_name: req.body.burger, devoured: false}).then(function(data){});
     });
 
 	app.get("/newBurger", function(req, res) {
 		orm.selectAll('burgers').then(function(data){
-			console.log(data);
+			//console.log(data);
 			res.send(data);
 		})
-	})
+	});
+
+	app.get('/eatBurger', function(req,res) {
+		orm.updateOne('burgers', 'devoured', 'id', req.body.id).then(function(data){});
+	});
 };

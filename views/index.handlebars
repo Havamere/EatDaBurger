@@ -51,21 +51,3 @@
 	  	</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	$('#submit').on('click', function(){
-		$.get('/newBurger', function(data){
-			for (var i=0; i<data.length; i++){
-				if (data[i].devoured == 0){
-					$('#to-eat').append( "<li>"+
-							    		"<p>"+data[i].id+". "+data[i].burger_name+"</p>"+
-							    		"<form action='/update?_method=PUT' method='POST class='button-size'>"+
-							    		"<input type='text' name='"+data[i].burger_name+"' id='"+data[i].id+"'>"+
-							    		"<button type='submit'>Devour It!</button>"+
-							    		"</form>"+
-							    		"</li>");
-				}
-			}
-		})
-	});
-</script>
