@@ -11,13 +11,23 @@ var orm = {
 			});
 		})
 	},
-	insertOne: function(table, column1, column2, column3, colOneVal){
+	// insertOne: function(table, column1, column2, column3, colOneVal){
+	// 	return new Promise(function(resolve, reject){
+	// 		var queryString = 'INSERT INTO '+table+' ('+column1+', '+column2+', '+column3+') VALUES (?,?,?)'; 
+	// 		connection.query(queryString, [colOneVal, false, now()], function(err, res) {
+ //      			if (err) throw err;
+ //      			//console.log(res);
+ //      			return resolve(res);
+ //    		});
+ //    	});	
+	// },
+	insertOne: function(table, newObject){
 		return new Promise(function(resolve, reject){
-			var queryString = 'INSERT INTO '+table+' ('+column1+', '+column2+', '+column3+') VALUES (?,?,?)'; 
-			connection.query(queryString, [colOneVal, false, now()], function(err, res) {
+			var queryString = 'INSERT INTO '+table+' SET ?'; 
+			connection.query(queryString, newObject, function(err, res) {
       			if (err) throw err;
       			//console.log(res);
-      			return res;
+      			return resolve(res);
     		});
     	});	
 	},
